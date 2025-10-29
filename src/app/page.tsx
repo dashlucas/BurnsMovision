@@ -349,14 +349,9 @@ function JogoView({
             isColliding = false;
             attempts++;
             
-            const spawnSide = Math.random() < 0.5 ? 'left' : 'right';
-            const sideWidth = (canvas.width / 2) * spawnRangePercentage;
-            
-            if (spawnSide === 'left') {
-                x = Math.random() * sideWidth;
-            } else {
-                x = canvas.width - (Math.random() * sideWidth);
-            }
+            const spawnRangeWidth = canvas.width * spawnRangePercentage;
+            const spawnRangeStart = (canvas.width - spawnRangeWidth) / 2;
+            x = Math.random() * spawnRangeWidth + spawnRangeStart;
 
             y = Math.random() * spawnRangeHeight + spawnRangeYStart;
 
@@ -383,14 +378,9 @@ function JogoView({
         }
         
         if (isColliding) { // Fallback if too many attempts
-            const spawnSide = Math.random() < 0.5 ? 'left' : 'right';
-            const sideWidth = (canvas.width / 2) * spawnRangePercentage;
-            
-            if (spawnSide === 'left') {
-                x = Math.random() * sideWidth;
-            } else {
-                x = canvas.width - (Math.random() * sideWidth);
-            }
+            const spawnRangeWidth = canvas.width * spawnRangePercentage;
+            const spawnRangeStart = (canvas.width - spawnRangeWidth) / 2;
+            x = Math.random() * spawnRangeWidth + spawnRangeStart;
             y = Math.random() * spawnRangeHeight + spawnRangeYStart;
         }
 
